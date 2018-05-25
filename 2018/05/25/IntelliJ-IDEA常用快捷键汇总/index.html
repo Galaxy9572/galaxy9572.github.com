@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          IntelliJ IDEA常用快捷键汇总 - Github/Galaxy9572
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2018/05/25/IntelliJ-IDEA常用快捷键汇总/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('null')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#IDEA" title="IDEA">IDEA</a>
+                            
+                        </div>
+                        <h1>IntelliJ IDEA常用快捷键汇总</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Galaxy9572 on
+                            2018-05-25
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Plog, Code Your Inspiration</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>在使用IntelliJ IDEA的时候，使用快捷键是必不可少的。掌握一些常用的快捷键能大大提高我们的开发效率。有些快捷键可以熟练的使用，但是还有另外一些快捷键虽然很好用，但是由于因为没有形成使用习惯或者没有理解快捷键的用法，甚至之前对一些快捷键根本没有概念，导致不会去使用。对于这些快捷键，如果能够用好，编辑代码的效率必能提高一个水平。所以在此梳理出来，加强自己的使用，形成习惯。</p>
+<p>（注：有些操作的快捷键做了更改，和IntelliJ Idea默认的快捷键不一样）</p>
+<p>如果你习惯了Eclipse的快捷键的话，请忽略本文</p>
+<blockquote>
+<h1><span id="idea更改快捷键方法">IDEA更改快捷键方法</span></h1>
+</blockquote>
+<p>1、File -&gt; Settings (或者使用Ctrl + Atl + S)</p>
+<p>2、Keymap -&gt; 选择Eclipse</p>
+<blockquote>
+<h1><span id="移动操作">移动操作</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Move Caret to Code Block End</td>
+<td style="text-align:center">Ctrl+]</td>
+<td style="text-align:center">诸如{}围起来的代码块，使用该快捷键可以快速跳转至代码块的结尾处</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Caret to Code Block Start</td>
+<td style="text-align:center">Ctrl+[</td>
+<td style="text-align:center">同上，快速跳至代码块的开始</td>
+</tr>
+<tr>
+<td style="text-align:center">Complete Current Statement</td>
+<td style="text-align:center">Ctrl+Shift+Enter</td>
+<td style="text-align:center">将输入的if、for、函数等等补上{}或者;使代码语句完整</td>
+</tr>
+<tr>
+<td style="text-align:center">Start New Line</td>
+<td style="text-align:center">Shift+Enter</td>
+<td style="text-align:center">在当前行的下方开始新行</td>
+</tr>
+<tr>
+<td style="text-align:center">Start New Line Before Current</td>
+<td style="text-align:center">Ctrl+Alt+Enter</td>
+<td style="text-align:center">在当前行上方插入新行</td>
+</tr>
+<tr>
+<td style="text-align:center">Delete to Word End</td>
+<td style="text-align:center">Ctrl+Delete</td>
+<td style="text-align:center">删除光标所在至单词结尾处的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">Delete to Word Start</td>
+<td style="text-align:center">Ctrl+BackSpace</td>
+<td style="text-align:center">删除光标所在至单词开头的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Caret to Previous Word</td>
+<td style="text-align:center">Ctrl+向左箭头</td>
+<td style="text-align:center">将光标移至前一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Caret to Next Word</td>
+<td style="text-align:center">Ctrl+向右箭头</td>
+<td style="text-align:center">将光标移至后一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">Scroll Up</td>
+<td style="text-align:center">Ctrl+向上箭头</td>
+<td style="text-align:center">向上滚动一行</td>
+</tr>
+<tr>
+<td style="text-align:center">Scroll Down</td>
+<td style="text-align:center">Ctrl+向下箭头</td>
+<td style="text-align:center">向下滚动一行</td>
+</tr>
+<tr>
+<td style="text-align:center">Extend Selection</td>
+<td style="text-align:center">Ctrl+W</td>
+<td style="text-align:center">选中整个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">Toggle Case</td>
+<td style="text-align:center">Ctrl+Shift+U</td>
+<td style="text-align:center">切换大小写</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Statement Down</td>
+<td style="text-align:center">Ctrl+Shift+向下箭头</td>
+<td style="text-align:center">将光标所在的代码块向下整体移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Statement Up</td>
+<td style="text-align:center">Ctrl+Shift+向上箭头</td>
+<td style="text-align:center">将光标所在的代码块向上移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Element Left</td>
+<td style="text-align:center">Ctrl+Alt+Shift+向左箭头</td>
+<td style="text-align:center">将元素向左移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Element Right</td>
+<td style="text-align:center">Ctrl+Alt+Shift+向右箭头</td>
+<td style="text-align:center">将元素向右移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Line Down</td>
+<td style="text-align:center">Alt+Shift+向下箭头</td>
+<td style="text-align:center">将行向下移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Move Line Up</td>
+<td style="text-align:center">Alt+Shift+向上箭头</td>
+<td style="text-align:center">将行向上移动</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1><span id="编辑">编辑</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Undo</td>
+<td style="text-align:center">Ctrl+Z</td>
+<td style="text-align:center">撤销</td>
+</tr>
+<tr>
+<td style="text-align:center">Redo</td>
+<td style="text-align:center">Ctrl+Shift+Z</td>
+<td style="text-align:center">重做</td>
+</tr>
+<tr>
+<td style="text-align:center">Cut</td>
+<td style="text-align:center">Ctrl+X</td>
+<td style="text-align:center">剪切</td>
+</tr>
+<tr>
+<td style="text-align:center">Copy</td>
+<td style="text-align:center">Ctrl+C</td>
+<td style="text-align:center">复制</td>
+</tr>
+<tr>
+<td style="text-align:center">Paste</td>
+<td style="text-align:center">Ctrl+V</td>
+<td style="text-align:center">粘贴</td>
+</tr>
+<tr>
+<td style="text-align:center">Join Lines</td>
+<td style="text-align:center">Ctrl+Shift+J</td>
+<td style="text-align:center">将选中的行合并成一行</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1><span id="查找">查找</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Find</td>
+<td style="text-align:center">Ctrl+F</td>
+<td style="text-align:center">在当前文件中查找</td>
+</tr>
+<tr>
+<td style="text-align:center">Replace</td>
+<td style="text-align:center">Ctrl+R</td>
+<td style="text-align:center">替换字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">Find in Path</td>
+<td style="text-align:center">Ctrl+Shift+F</td>
+<td style="text-align:center">在全局文件中查找字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">Replace in Path</td>
+<td style="text-align:center">Ctrl+Shift+R</td>
+<td style="text-align:center">在全局中替换字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">Find Usages Alt+F7</td>
+<td style="text-align:center">查找当前变量的使用，并列表显示</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Show Usages</td>
+<td style="text-align:center">Ctrl+Alt+F7</td>
+<td style="text-align:center">查找当前变量的使用，并直接对话框显示</td>
+</tr>
+<tr>
+<td style="text-align:center">Find Usages in File</td>
+<td style="text-align:center">Ctrl+F7</td>
+<td style="text-align:center">在文件中查找符号的使用</td>
+</tr>
+<tr>
+<td style="text-align:center">Highlight Usages in File</td>
+<td style="text-align:center">Ctrl+Shift+F7</td>
+<td style="text-align:center">在文件中高亮显示变量的使用</td>
+</tr>
+</tbody>
+</table>
+<p>这里的快捷键用的频率还是很高的，但是之前用的最多的是Ctrl+F和Ctrl+Shift+F，后面相关的Find Usages基本上没有用过，后面应该多使用，有的时候相对Ctrl+F在文件内按字符串查找，还是更好用一些</p>
+<blockquote>
+<h1><span id="导航">导航</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Class…</td>
+<td style="text-align:center">Ctrl+N</td>
+<td style="text-align:center">查找类文件</td>
+</tr>
+<tr>
+<td style="text-align:center">File…</td>
+<td style="text-align:center">Ctrl+Shift+N</td>
+<td style="text-align:center">查找文件</td>
+</tr>
+<tr>
+<td style="text-align:center">Line…</td>
+<td style="text-align:center">Ctrl+G</td>
+<td style="text-align:center">定位到文件某一行</td>
+</tr>
+<tr>
+<td style="text-align:center">Back</td>
+<td style="text-align:center">Alt+向左箭头</td>
+<td style="text-align:center">返回至上次光标位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Forward</td>
+<td style="text-align:center">Alt+向右箭头</td>
+<td style="text-align:center">返回至后一次光标位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Last Edit Location</td>
+<td style="text-align:center">Ctrl+Shift+Backspace</td>
+<td style="text-align:center">返回上次编辑位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Next Edit Location</td>
+<td style="text-align:center">Ctrl+Shift+反斜杠</td>
+<td style="text-align:center">返回后一次编辑位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Declaration</td>
+<td style="text-align:center">Ctrl+B</td>
+<td style="text-align:center">定位至变量定义的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Implementation(s)</td>
+<td style="text-align:center">Ctrl+Alt+B</td>
+<td style="text-align:center">定位至选中类或方法的具体实现</td>
+</tr>
+<tr>
+<td style="text-align:center">Type Declaration</td>
+<td style="text-align:center">Ctrl+Shift+B</td>
+<td style="text-align:center">直接定位至光标所在变量的类型定义</td>
+</tr>
+<tr>
+<td style="text-align:center">Super Method</td>
+<td style="text-align:center">Ctrl+U</td>
+<td style="text-align:center">直接定位至当前方法override或者implements的方法定义处</td>
+</tr>
+<tr>
+<td style="text-align:center">File Structure</td>
+<td style="text-align:center">Ctrl+F12</td>
+<td style="text-align:center">显示当前文件的文件结构</td>
+</tr>
+<tr>
+<td style="text-align:center">File Path</td>
+<td style="text-align:center">Ctrl+Alt+F12</td>
+<td style="text-align:center">显示当前文件的路径，并可以方便的将相关父路径打开</td>
+</tr>
+<tr>
+<td style="text-align:center">Type Hierarchy</td>
+<td style="text-align:center">Ctrl+H</td>
+<td style="text-align:center">显示当前类的继承层次</td>
+</tr>
+<tr>
+<td style="text-align:center">Method Hierarchy</td>
+<td style="text-align:center">Ctrl+Shift+H 显示当前方法的继承层次</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Call Hierarchy</td>
+<td style="text-align:center">Ctrl+Alt+H 显示当前方法的调用层次</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Next Highlighted Error</td>
+<td style="text-align:center">F2</td>
+<td style="text-align:center">定位至下一个错误处</td>
+</tr>
+<tr>
+<td style="text-align:center">Previous Highlighted Error</td>
+<td style="text-align:center">Shift+F2</td>
+<td style="text-align:center">定位至前一个错误处</td>
+</tr>
+<tr>
+<td style="text-align:center">Previous Occurrence</td>
+<td style="text-align:center">Ctrl+Alt+向上箭头</td>
+<td style="text-align:center">查找前一个变量共现的地方</td>
+</tr>
+<tr>
+<td style="text-align:center">Next Occurrence</td>
+<td style="text-align:center">Ctrl+Alt+向下箭头 查找下一个变量共现的地方</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>目前还不知道Previous Occurrence 和 Next Occurrence是怎么用的，在变量上使用没有反应。不过在Edit–Find菜单下有几个菜单项：Find Next / Move to Next Occurrence、Find Previous / Move to Previous Occurrence等。当选中变量的时候，需要首先点击“Find Word at Caret”，然后再点击上述选项才有用</p>
+<blockquote>
+<h1><span id="代码">代码</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Override Methods…</td>
+<td style="text-align:center">Ctrl+O</td>
+<td style="text-align:center">重写基类的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">Implement Methods…</td>
+<td style="text-align:center">Ctrl+I</td>
+<td style="text-align:center">实现基类或接口中的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">Generate…</td>
+<td style="text-align:center">Alt+Insert</td>
+<td style="text-align:center">产生构造方法、getter/setter等方法</td>
+</tr>
+<tr>
+<td style="text-align:center">Surround With…</td>
+<td style="text-align:center">Ctrl+Alt+T</td>
+<td style="text-align:center">将选中的代码使用if、while、try/catch等包装</td>
+</tr>
+<tr>
+<td style="text-align:center">Unwrap/Remove…</td>
+<td style="text-align:center">Ctrl+Shift+Delete</td>
+<td style="text-align:center">去除相关的包装代码</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1><span id="代码自动完成">代码自动完成</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Basic</td>
+<td style="text-align:center">Alt+/</td>
+<td style="text-align:center">自动完成</td>
+</tr>
+<tr>
+<td style="text-align:center">SmartType</td>
+<td style="text-align:center">Alt+Enter</td>
+<td style="text-align:center">自动提示完成</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1><span id="代码展开与收缩">代码展开与收缩</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Expand</td>
+<td style="text-align:center">Ctrl+=</td>
+<td style="text-align:center">展开代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Collapse</td>
+<td style="text-align:center">Ctrl±</td>
+<td style="text-align:center">收缩代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Expand Recursively Ctrl+Alt+= 递归展开代码</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Collapse Recursively</td>
+<td style="text-align:center">Ctrl+Alt±</td>
+<td style="text-align:center">递归收缩代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Expand All</td>
+<td style="text-align:center">Ctrl+Shift+=</td>
+<td style="text-align:center">展开所有代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Collapse All</td>
+<td style="text-align:center">Ctrl+Shift±</td>
+<td style="text-align:center">收缩所有代码</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1><span id="其它">其它</span></h1>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动作</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Insert Live Template Ctrl+J 插入Live Template</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Surround with Live Template</td>
+<td style="text-align:center">Ctrl+Alt+J</td>
+<td style="text-align:center">使用Live Template包装</td>
+</tr>
+<tr>
+<td style="text-align:center">Comment with Line Comment</td>
+<td style="text-align:center">Ctrl+/</td>
+<td style="text-align:center">使用//进行注释</td>
+</tr>
+<tr>
+<td style="text-align:center">Comment with Block Comment</td>
+<td style="text-align:center">Ctrl+Shift+/ 使用/**/进行注释</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Reformat Code</td>
+<td style="text-align:center">Ctrl+Alt+L</td>
+<td style="text-align:center">格式化代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Auto-Indent Lines</td>
+<td style="text-align:center">Ctrl+Alt+I</td>
+<td style="text-align:center">自动缩进行</td>
+</tr>
+<tr>
+<td style="text-align:center">Optimize Imports</td>
+<td style="text-align:center">Ctrl+Alt+O</td>
+<td style="text-align:center">优化import</td>
+</tr>
+<tr>
+<td style="text-align:center">Rename</td>
+<td style="text-align:center">Shift+F6</td>
+<td style="text-align:center">重命名</td>
+</tr>
+<tr>
+<td style="text-align:center">Change Signature</td>
+<td style="text-align:center">Ctrl+F6</td>
+<td style="text-align:center">更改函数签名</td>
+</tr>
+<tr>
+<td style="text-align:center">Type Migration</td>
+<td style="text-align:center">Ctrl+Shift+F6</td>
+<td style="text-align:center">更改类型</td>
+</tr>
+</tbody>
+</table>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/05/25/IntelliJ-IDEA常用插件/" data-toggle="tooltip" data-placement="top" title="IntelliJ IDEA常用插件">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/05/25/hexo-theme-beantech/" data-toggle="tooltip" data-placement="top" title="Hexo使用说明">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">IDEA更改快捷键方法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">移动操作</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">编辑</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">查找</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">导航</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">代码</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">代码自动完成</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">代码展开与收缩</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">其它</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#IDEA" title="IDEA">IDEA</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://yoursite-url/2018/05/25/IntelliJ-IDEA常用快捷键汇总/";
+    var disqus_url = "http://yoursite-url/2018/05/25/IntelliJ-IDEA常用快捷键汇总/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/u/1959137975">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/Galaxy9572">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Galaxy9572">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/Galaxy9572">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Galaxy9572 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/05/25/IntelliJ-IDEA%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</loc>
+        <lastmod>2018-05-25T16:28:51.100Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/05/25/IntelliJ-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB/</loc>
+        <lastmod>2018-05-25T15:47:11.147Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/05/25/hexo-theme-beantech/</loc>
         <lastmod>2018-05-25T14:50:07.475Z</lastmod>
         <changefreq>weekly</changefreq>
