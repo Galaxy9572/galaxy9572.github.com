@@ -140,14 +140,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -238,7 +238,7 @@
 <p>modelVersion：对于maven2+/3+版本都是4.0.0</p>
 </li>
 <li>
-<p>groupId：项目所在的组的ID，通常与你所在的组织或公司有关，一般是域名的倒写，类似Java的包名，不是绝对的</p>
+<p>groupId：项目所在的实际项目，通常应该与你所在的组织或公司以及项目名有关，因为artifactId只定义maven项目的模块，如果groupId只有公司组织名而没有大项目名的话，groupId和artifactId加起来会比较难定义坐标。一般是域名的倒写，类似Java的包名，不是绝对的</p>
 </li>
 <li>
 <p>artifactId：项目在组内的唯一ID</p>
@@ -248,7 +248,13 @@
 <p>groupId、artifactId、version共同组成一个坐标来唯一确定该项目在仓库中的位置</p>
 </li>
 <li>
-<p>name：项目名字，不是必须的</p>
+<p>packaging：打包方式，可选，默认为jar</p>
+</li>
+<li>
+<p>name：项目名字，可选</p>
+</li>
+<li>
+<p>classifier：帮助定义输出附属的组件，如source或者javadoc，不能直接在这定义</p>
 </li>
 <li>
 <p>dependencies：配置各种依赖</p>
@@ -309,6 +315,101 @@
 <h3><span id="35-安装">3.5、安装</span></h3>
 <p>cmd : mvn (clean) install</p>
 <p>maven的install可以将项目本身编译并打包到本地仓库，这样其他项目引用本项目的jar包时不用去下载jar包，直接从本地就可以拿到刚刚编译打包好的项目的jar包，很灵活</p>
+<h3><span id="36-根据archetype生成项目骨架">3.6、根据Archetype生成项目骨架</span></h3>
+<p>cmd：mvn archetype:generate</p>
+<p>Maven的规约是项目根目录下放置POM文件，src/main/java放置项目的源代码，src/test/java放置测试的源代码，src/main/resource放置项目的配置文件之类，src/test/resource放置测试的配置文件</p>
+<h2><span id="4-maven坐标amp依赖">4、Maven坐标&amp;依赖</span></h2>
+<p>groupId、artifactId、version共同组成一个坐标来唯一确定该项目在仓库中的位置</p>
+<p>当正确配置maven的依赖后，maven会从中央仓库下载对应的依赖</p>
+<p>相关信息在已在 ## 2.2 提到</p>
+<p>maven打出来的包名一般按照artifactId-version[-classifier].packaging的规约生成</p>
+<h3><span id="41-依赖dependency的具体元素">4.1、依赖(dependency)的具体元素</span></h3>
+<ul>
+<li>groupId</li>
+<li>artifactId</li>
+<li>version</li>
+<li>type：可以不声明，默认为jar</li>
+<li>scope：可以不声明，默认为compile</li>
+<li>optional：表示依赖是否可选</li>
+<li>exclusions：排除传递性依赖</li>
+</ul>
+<h3><span id="42-依赖范围scope">4.2、依赖范围(scope)</span></h3>
+<ul>
+<li>
+<p>compile：对于编译、测试、运行三种生命周期的test/main下的源代码都有效，默认为这个</p>
+</li>
+<li>
+<p>test：只对于测试的生命周期的test目录下的代码有效，如JUnit</p>
+</li>
+<li>
+<p>provided：对于编译、测试两种生命周期的test/main下的源代码都有效，如servlet-api，容器可以提供这个，所以运行时不用maven提供依赖</p>
+</li>
+<li>
+<p>runtime：测试和运行时的test/main下的代码有效，如JDBC驱动</p>
+</li>
+<li>
+<p>system：对于编译、测试两种生命周期的test/main下的源代码都有效，但是要与本机的系统路径绑定，一致性不强，也不是由maven仓库解析</p>
+<dependency>
+<p>​	…</p>
+<p>​	<scope>system</scope></p>
+<p>​	<systempath>${java.home}/lib/rt.jar</systempath></p>
+</dependency>
+</li>
+<li>
+<p>import：导入依赖范围，不对依赖的生命周期不会有实际影响</p>
+</li>
+</ul>
+<h3><span id="43-传递性依赖">4.3、传递性依赖</span></h3>
+<p>A依赖B，B依赖C，那么C就是A的传递性依赖</p>
+<ul>
+<li>当第二直接依赖的范围是compile时，传递性依赖的范围与第一直接依赖一致</li>
+<li>当第二直接依赖的范围是test时，传递性依赖不会得到传递</li>
+<li>当第二直接依赖的范围是provide时，只传递第一直接传递范围为provide的依赖，且范围也是provide</li>
+<li>当第二直接依赖的范围是runtime时，传递性依赖范围与第一直接依赖范围一致，但compile不一样，传递依赖为runtime</li>
+</ul>
+<h3><span id="44-依赖调解">4.4、依赖调解</span></h3>
+<p>有如下依赖路径：</p>
+<p>A -&gt; B -&gt; C -&gt; X (1.0)</p>
+<p>A -&gt; D -&gt; X (2.0)</p>
+<p>两条路径都引用了X，此时Maven会选用最短路径原则，那么第二条路径会被运用</p>
+<p>有如下依赖路径：</p>
+<p>A -&gt; C -&gt; X (1.0)</p>
+<p>A -&gt; D -&gt; X (2.0)</p>
+<p>两条路径都引用了X，且路径长度一致，此时Maven会选用最先声明原则，在pom文件先声明的依赖会被启用，那么第一条路径会被运用</p>
+<h3><span id="45-排除传递性依赖">4…5、排除传递性依赖</span></h3>
+<p>排除依赖只需要groupId和artifactId</p>
+<dependency>
+<p>​	…</p>
+<p>​	<exclusions></exclusions></p>
+<p>​		<exclusion></exclusion></p>
+<p>​			<groupid>···</groupid></p>
+<p>​			<artifactid>···</artifactid></p>
+<p>​		</p>
+<p>​	</p>
+</dependency>
+<h3><span id="46-依赖归类">4.6、依赖归类</span></h3>
+<p>同一项目的不同包可能优势用的版本是一样的，我们可以用Maven的属性来进行统一管理</p>
+<properties>
+<p>​	&lt;a.version&gt;1.0.0&lt;/a.version&gt;</p>
+</properties>
+<p>然后在dependency的version中使用${a.version}引用即可</p>
+<h3><span id="47-优化依赖">4.7、优化依赖</span></h3>
+<p>Maven会解析项目的直接依赖和传递依赖，并且正确判断依赖范围，可以调节依赖冲突来保证只有一个版本正确引用，完成后的依赖叫已解析依赖</p>
+<ul>
+<li>
+<p>查看依赖列表</p>
+<p>cmd:mvn dependency:list</p>
+</li>
+<li>
+<p>查看依赖树状图</p>
+<p>cmd:mvn dependency:tree</p>
+</li>
+<li>
+<p>分析项目依赖使用情况</p>
+<p>cmd:mvn dependency:analyze</p>
+<p>可以查看依赖是否被使用等等</p>
+</li>
+</ul>
 
                 
 
@@ -348,7 +449,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Maven 笔记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1、配置(3.5.2版本)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">1.1、环境变量配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">1.2、maven目录结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">1.3、设置HTTP代理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2、POM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">2.1、POM简介</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">2.2、POM基本信息</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">3、Maven生命周期</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">3.1、编写代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">3.2、编译</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">3.3、测试</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">3.4、打包运行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">3.5、安装</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Maven 笔记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1、配置(3.5.2版本)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">1.1、环境变量配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">1.2、maven目录结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">1.3、设置HTTP代理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2、POM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">2.1、POM简介</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">2.2、POM基本信息</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">3、Maven生命周期</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">3.1、编写代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">3.2、编译</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">3.3、测试</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">3.4、打包运行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">3.5、安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.6.</span> <span class="toc-nav-text">3.6、根据Archetype生成项目骨架</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">4、Maven坐标&amp;依赖</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">4.1、依赖(dependency)的具体元素</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">4.2、依赖范围(scope)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">4.3、传递性依赖</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">4.4、依赖调解</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">4…5、排除传递性依赖</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.6.</span> <span class="toc-nav-text">4.6、依赖归类</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.7.</span> <span class="toc-nav-text">4.7、优化依赖</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
