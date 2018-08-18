@@ -294,9 +294,9 @@
 <h3><span id="31-编写代码">3.1、编写代码</span></h3>
 <p>按照maven的定义，源代码在src/main/java包下</p>
 <h3><span id="32-编译">3.2、编译</span></h3>
-<p>cmd: mvn (clean) compile</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmd</span><span class="bash">: mvn (clean) compile</span></span><br></pre></td></tr></table></figure>
 <h3><span id="33-测试">3.3、测试</span></h3>
-<p>cmd: mvn (clean) test</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmd</span><span class="bash">: mvn (clean) <span class="built_in">test</span></span></span><br></pre></td></tr></table></figure>
 <p>按照maven的定义，测试的类在src/test/java包下</p>
 <p>surefire 插件用来在maven构建生命周期的test phase执行一个应用的单元测试。它会产生两种不同形式的测试结果报告：</p>
 <ol>
@@ -309,14 +309,14 @@
 </ol>
 <p>默认情况下，这些文件生成在工程的${basedir}/target/surefire-reports，目录下（basedir指的是pom文件所在的目录）。 它可以运行任何testNG,Junit,pojo写的单元测试</p>
 <h3><span id="34-打包运行">3.4、打包运行</span></h3>
-<p>cmd : mvn (clean) package</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd : <span class="type">mvn</span> (clean) <span class="keyword">package</span></span><br></pre></td></tr></table></figure>
 <p>测试之后的生命周期是打包，打包的命名规范是：artifact-version.jar(war)</p>
 <p>默认生成的jar无法运行，因为META-INFO/MANIFEST.MF中没有Main-Class信息，需要在<plugins>节点下配置maven-shade-plugin插件</plugins></p>
 <h3><span id="35-安装">3.5、安装</span></h3>
-<p>cmd : mvn (clean) install</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmd</span><span class="bash"> : mvn (clean) install</span></span><br></pre></td></tr></table></figure>
 <p>maven的install可以将项目本身编译并打包到本地仓库，这样其他项目引用本项目的jar包时不用去下载jar包，直接从本地就可以拿到刚刚编译打包好的项目的jar包，很灵活</p>
 <h3><span id="36-根据archetype生成项目骨架">3.6、根据Archetype生成项目骨架</span></h3>
-<p>cmd：mvn archetype:generate</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd：mvn archetype:<span class="keyword">generate</span></span><br></pre></td></tr></table></figure>
 <p>Maven的规约是项目根目录下放置POM文件，src/main/java放置项目的源代码，src/test/java放置测试的源代码，src/main/resource放置项目的配置文件之类，src/test/resource放置测试的配置文件</p>
 <h2><span id="4-maven坐标amp依赖">4、Maven坐标&amp;依赖</span></h2>
 <p>groupId、artifactId、version共同组成一个坐标来唯一确定该项目在仓库中的位置</p>
@@ -349,11 +349,7 @@
 </li>
 <li>
 <p>system：对于编译、测试两种生命周期的test/main下的源代码都有效，但是要与本机的系统路径绑定，一致性不强，也不是由maven仓库解析</p>
-<dependency>
-<p>​	…</p>
-<p>​	<scope>system</scope></p>
-<p>​	<systempath>${java.home}/lib/rt.jar</systempath></p>
-</dependency>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	....</span><br><span class="line">	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;java.home&#125;/lib/rt.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>import：导入依赖范围，不对依赖的生命周期不会有实际影响</p>
@@ -378,35 +374,25 @@
 <p>两条路径都引用了X，且路径长度一致，此时Maven会选用最先声明原则，在pom文件先声明的依赖会被启用，那么第一条路径会被运用</p>
 <h3><span id="45-排除传递性依赖">4…5、排除传递性依赖</span></h3>
 <p>排除依赖只需要groupId和artifactId</p>
-<dependency>
-<p>​	…</p>
-<p>​	<exclusions></exclusions></p>
-<p>​		<exclusion></exclusion></p>
-<p>​			<groupid>···</groupid></p>
-<p>​			<artifactid>···</artifactid></p>
-<p>​		</p>
-<p>​	</p>
-</dependency>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	....</span><br><span class="line">	<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>···<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>···<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3><span id="46-依赖归类">4.6、依赖归类</span></h3>
 <p>同一项目的不同包可能优势用的版本是一样的，我们可以用Maven的属性来进行统一管理</p>
-<properties>
-<p>​	&lt;a.version&gt;1.0.0&lt;/a.version&gt;</p>
-</properties>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a.version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">a.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在dependency的version中使用${a.version}引用即可</p>
 <h3><span id="47-优化依赖">4.7、优化依赖</span></h3>
 <p>Maven会解析项目的直接依赖和传递依赖，并且正确判断依赖范围，可以调节依赖冲突来保证只有一个版本正确引用，完成后的依赖叫已解析依赖</p>
 <ul>
 <li>
 <p>查看依赖列表</p>
-<p>cmd:mvn dependency:list</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cmd</span><span class="selector-pseudo">:mvn</span> <span class="selector-tag">dependency</span><span class="selector-pseudo">:list</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>查看依赖树状图</p>
-<p>cmd:mvn dependency:tree</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cmd</span><span class="selector-pseudo">:mvn</span> <span class="selector-tag">dependency</span><span class="selector-pseudo">:tree</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>分析项目依赖使用情况</p>
-<p>cmd:mvn dependency:analyze</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cmd</span><span class="selector-pseudo">:mvn</span> <span class="selector-tag">dependency</span><span class="selector-pseudo">:analyze</span></span><br></pre></td></tr></table></figure>
 <p>可以查看依赖是否被使用等等</p>
 </li>
 </ul>
