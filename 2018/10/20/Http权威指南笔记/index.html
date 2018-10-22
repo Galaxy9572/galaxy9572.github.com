@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Docker入门 - Github/Galaxy9572
+          Http权威指南笔记 - Github/Galaxy9572
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2018/07/01/Docker入门/">
+    <link rel="canonical" href="http://yoursite-url/2018/10/20/Http权威指南笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,14 +86,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
-                            
                         </div>
-                        <h1>Docker入门</h1>
+                        <h1>Http权威指南笔记</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Galaxy9572 on
-                            2018-07-01
+                            2018-10-20
                         </span>
                     </div>
                 
@@ -210,33 +208,144 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<h1><span id="什么是docker">什么是Docker</span></h1>
-</blockquote>
-<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
-<blockquote>
-<h1><span id="docker与虚拟机的对比">Docker与虚拟机的对比</span></h1>
-</blockquote>
-<p><img src="vm_vs_docker.png" alt="VM VS Docker"></p>
-<blockquote>
-<h1><span id="docker架构">Docker架构</span></h1>
-</blockquote>
-<p><img src="docker%E6%9E%B6%E6%9E%84.png" alt="docker架构"></p>
-<p><img src="docker%E6%9E%B6%E6%9E%842.png" alt="docker架构2"></p>
-<blockquote>
-<h1><span id="docker术语">Docker术语</span></h1>
-</blockquote>
-<p><img src="docker%E6%9C%AF%E8%AF%AD.png" alt="docker术语"></p>
-<blockquote>
-<h1><span id="dockerfile语法">Dockerfile语法</span></h1>
-</blockquote>
-<p><img src="dockerfile%E8%AF%AD%E6%B3%95.png" alt="dockerfile语法"></p>
-<p><img src="dockerfile%E8%AF%AD%E6%B3%952.png" alt="dockerfile语法2"></p>
-<blockquote>
-<h1><span id="docker命令">Docker命令</span></h1>
-</blockquote>
-<p><img src="docker%E5%91%BD%E4%BB%A4.png" alt="docker命令"></p>
-<p><img src="docker%E5%91%BD%E4%BB%A42.png" alt="docker命令2"></p>
+                <h1><span id="http权威指南笔记">Http权威指南笔记</span></h1>
+<h2><span id="11-http因特网的多媒体信使">1.1　HTTP–因特网的多媒体信使</span></h2>
+<p><strong>HTTP 使用的是可靠的数据传输协议，因此能够确保数据在传输的过程中不会被损坏或产生混乱</strong>。</p>
+<p>这样，用户在访问信息时就不用担心其完整性了，而对因特网应用程序开发人员来说也同样如此。</p>
+<p>开发人员可以专注于应用程序特有细节的编写，而不用考虑因特网中存在的一些缺陷和问题。</p>
+<h2><span id="12-web客户端和服务器">1.2　Web客户端和服务器</span></h2>
+<p>Web 内容都是存储在 Web 服务器上的。</p>
+<p>Web 服务器所使用的是 HTTP 协议，因此经常会被称为 HTTP 服务器，这些 HTTP 服务器存储了因特网中的数据，如果HTTP 客户端发出请求的话，它们会提供数据。</p>
+<p>客户端向服务器发送 HTTP 请求，服务器会在 HTTP 响应中回送所请求的数据</p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540010021517.png" alt="1540010021517"></p>
+<p>浏览一个页面时（比如 <a href="http://www.oreilly.com/index.html%EF%BC%89%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8www.oreilly.com" target="_blank" rel="noopener">http://www.oreilly.com/index.html），浏览器会向服务器www.oreilly.com</a> 发送一条 HTTP 请求，服务器会去寻找所期望的对象（在这个例子中就是 /index.html），如果成功，就将对象、对象类型、对象长度以及其他一些信息放在 HTTP 响应中发送给客户端。</p>
+<h2><span id="13-资源所有能够提供-web-内容的东西都是-web-资源">1.3　资源–所有能够提供 Web 内容的东西都是 Web 资源</span></h2>
+<p><strong>Web 服务器是 Web 资源（Web resource）的宿主。Web 资源是 Web 内容的源头</strong>。</p>
+<p>最简单的 Web 资源就是 Web 服务器文件系统中的静态文件。这些文件可以包含任意内容：文本文件、HTML 文件、微软的 Word 文件、Adobe 的 Acrobat 文件、JPEG 图片文件、AVI 电影文件，或所有其他你能够想到的格式。<br>
+但资源不一定非得是静态文件。资源还可以是根据需要生成内容的软件程序。这些动态内容资源可以根据你的身份、所请求的信息或每天的不同时段来产生内容。它们可以为你显示照相机中活生生的照片，也可以帮你进行股票交易，搜索房产数据库，或者从在线商店中购买礼物。</p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540010304286.png" alt="1540010304286"></p>
+<h3><span id="131-媒体类型">1.3.1　媒体类型</span></h3>
+<p>因特网上有数千种不同的数据类型，HTTP 仔细地给每种要通过 Web 传输的对象都打上了名为 MIME 类型（MIME type）的数据格式标签。<strong>最初设计 MIME（Multipurpose Internet Mail Extension，多用途因特网邮件扩展）是为了解决在不同的电子邮件系统之间搬移报文时存在的问题。MIME 在电子邮件系统中工作得非常</strong><br>
+<strong>好，因此 HTTP 也采纳了它</strong>，用它来描述并标记多媒体内容。Web 服务器会为所有 HTTP 对象数据附加一个 MIME 类型。当 Web浏览器从服务器中取回一个对象时，会去查看相关的 MIME 类型，看看它是否知道应该如何处理这个对象。大多数浏览器都可以处理数百种常见的对象类型：显示图片文件、解析并格式化 HTML 文件、通过计算机声卡播放音频文件，或者运行外部插件软件来处理特殊格式的数据。</p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540010806506.png" alt="1540010806506"></p>
+<p><strong>MIME 类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由一条斜杠来分隔</strong>。</p>
+<ul>
+<li>HTML 格式的文本文档由  text/html 类型来标记。</li>
+<li>普通的 ASCII 文本文档由  text/plain 类型来标记。</li>
+<li>JPEG 格式的图片为  image/jpeg 类型。</li>
+<li>GIF 格式的图片为 image/gif 类型。</li>
+<li>Apple 的 QuickTime 电影为  video/quicktime 类型。</li>
+<li>微软的 PowerPoint 演示文件为  application/vnd.ms-powerpoint 类型。</li>
+<li>常见的 MIME 类型有数百个，实验性或用途有限的 MIME 类型则更多。</li>
+</ul>
+<h3><span id="132-uri">1.3.2　URI</span></h3>
+<p><strong>每个 Web 服务器资源都有一个名字，这样客户端就可以说明它们感兴趣的资源是什么了。服务器资源名被称为统一资源标识符（Uniform Resource Identifier，URI）。URI 就像因特网上的邮政地址一样，在世界范围内唯一标识并定位信息资源。</strong><br>
+给定了 URI，HTTP 就可以解析出对象。<strong>URI 有两种形式，分别称为 URL 和 URN</strong>。</p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540011598835.png" alt="1540011598835"></p>
+<h3><span id="133-url">1.3.3　URL</span></h3>
+<p>统一资源定位符（URL）是资源标识符最常见的形式。URL 描述了一台特定服务器上某资源的特定位置。它们可以明确说明如何从一个精确、固定的位置获取资源。</p>
+<p>大部分 URL 都遵循一种标准格式，这种格式包含三个部分。</p>
+<ul>
+<li>URL 的第一部分被称为 方案（scheme），说明了访问资源所使用的协议类型。这部分通常就是 HTTP 协议（http://）。</li>
+<li>第二部分给出了服务器的因特网地址（比如，<a href="http://www.joes-hardware.com" target="_blank" rel="noopener">www.joes-hardware.com</a>）。</li>
+<li>其余部分指定了 Web 服务器上的某个资源（比如，/specials/saw-blade.gif）。</li>
+</ul>
+<p><strong>现在，几乎所有的 URI 都是 URL</strong>。</p>
+<h3><span id="134-urn">1.3.4　URN</span></h3>
+<p>URI 的第二种形式就是统一资源名（URN）。URN 是作为特定内容的唯一名称使用的，与目前的资源所在地无关。使用这些与位置无关的 URN，就可以将资源四处搬移。通过 URN，还可以用同一个名字通过多种网络访问协议来访问资源。</p>
+<p><strong>比如，不论因特网标准文档 RFC 2141 位于何处（甚至可以将其复制到多个地方），都可以用下列 URN 来命名它</strong>：<br>
+<strong>urn:ietf:rfc:2141</strong><br>
+<strong>URN 仍然处于试验阶段，还未大范围使用</strong>。为了更有效地工作，URN 需要一个支撑架构来解析资源的位置。而此类架构的缺乏也延缓了其被采用的进度。</p>
+<h2><span id="14-事务">1.4　事务</span></h2>
+<p>一个 HTTP 事务由一条（从客户端发往服务器的）请求命令和一个（从服务器发回客户端的）响应结果组成。这种通信是通过名为 HTTP 报文（HTTP message）的格式化数据块进行的。</p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540130202475.png" alt="1540130202475"></p>
+<h3><span id="141-方法">1.4.1　方法</span></h3>
+<p>HTTP 支持几种不同的请求命令，这些命令被称为 HTTP 方法（HTTP method）。每条 HTTP 请求报文都包含一个方法。这个方法会告诉服务器要执行什么动作（获取一个 Web 页面、运行一个网关程序、删除一个文件等）。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>GET</td>
+<td>请求指定的页面信息，并返回实体主体。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEAD</td>
+<td>类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td>3</td>
+<td>POST</td>
+<td>向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PUT</td>
+<td>从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>DELETE</td>
+<td>请求服务器删除指定的资源。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>CONNECT</td>
+<td>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>OPTIONS</td>
+<td>允许客户端查看服务器的性能。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>TRACE</td>
+<td>回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="142-状态码">1.4.2　状态码</span></h3>
+<p>每条 HTTP 响应报文返回时都会携带一个状态码。<strong>状态码是一个三位数字的代码</strong>，告知客户端请求是否成功，或者是否需要采取其他动作。</p>
+<table>
+<thead>
+<tr>
+<th>HTTP状态码</th>
+<th>描　　述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK。文档正确返回</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Redirect（重定向）。到其他地方去获取资源</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found（没找到）。无法找到这个资源</td>
+</tr>
+</tbody>
+</table>
+<p><strong>伴随着每个数字状态码，HTTP 还会发送一条解释性的“原因短语”文本</strong>，包含文本短语主要是为了进行描述，所有的处理过程使用的都是数字码。<br>
+HTTP 软件处理下列状态码和原因短语的方式是一样的。<br>
+200 OK<br>
+200 Document attached<br>
+200 Success<br>
+200 All’s cool, dude</p>
+<h3><span id="143-web页面中可以包含多个对象">1.4.3　Web页面中可以包含多个对象</span></h3>
+<p><strong>应用程序完成一项任务时通常会发布多个 HTTP 事务</strong>。</p>
+<p>比如，Web 浏览器会发布一系列 HTTP 事务来获取并显示一个包含了丰富图片的 Web 页面。浏览器会执行一个事务来获取描述页面布局的 HTML“框架”，然后发布另外的 HTTP 事务来获取每个嵌入式图片、图像面板、Java 小程序等。这些嵌入式资源甚至可能位于不同的服务器上，因此，<strong>一个“Web 页面”通常并不是单个资源，而是一组资源的集合。</strong></p>
+<p><img src="D:%5Chexo%5Csource_posts%5CHttp%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0%5C1540220154852.png" alt="1540220154852"></p>
 
                 
 
@@ -244,13 +353,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/07/26/Maven笔记/" data-toggle="tooltip" data-placement="top" title="Maven笔记">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/05/25/IntelliJ-IDEA常用插件/" data-toggle="tooltip" data-placement="top" title="IntelliJ IDEA常用插件">Next Post &rarr;</a>
+                            <a href="/2018/07/26/Maven笔记/" data-toggle="tooltip" data-placement="top" title="Maven笔记">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -280,7 +385,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是Docker</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Docker与虚拟机的对比</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Docker架构</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Docker术语</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Dockerfile语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Docker命令</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Http权威指南笔记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1　HTTP–因特网的多媒体信使</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.2　Web客户端和服务器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">1.3　资源–所有能够提供 Web 内容的东西都是 Web 资源</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">1.3.1　媒体类型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">1.3.2　URI</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">1.3.3　URL</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">1.3.4　URN</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">1.4　事务</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">1.4.1　方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">1.4.2　状态码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">1.4.3　Web页面中可以包含多个对象</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -300,8 +405,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
-                        
                     </div>
                 </section>
                 
@@ -327,8 +430,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://yoursite-url/2018/07/01/Docker入门/";
-    var disqus_url = "http://yoursite-url/2018/07/01/Docker入门/";
+    var disqus_identifier = "http://yoursite-url/2018/10/20/Http权威指南笔记/";
+    var disqus_url = "http://yoursite-url/2018/10/20/Http权威指南笔记/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
